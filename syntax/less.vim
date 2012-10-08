@@ -27,18 +27,21 @@ syn match lessMixinChar "\.[[:alnum:]_-]\@=" contained nextgroup=lessClass
 syn match lessAmpersandChar "&" contained nextgroup=lessClass,cssPseudoClass
 syn match lessClass "[[:alnum:]_-]\+" contained
 
-syn keyword lessFunction lighten darken saturate desaturate fadein fadeout spin hue saturation lightness containedin=cssDefinition contained 
+syn keyword lessCommentTodo TODO FIXME XXX contained
 
-syn match lessComment "//.*$" contains=@Spell
+syn keyword lessFunction lighten darken saturate desaturate fadein fadeout spin hue saturation lightness containedin=cssDefinition contained
 
-hi def link lessVariable Special
-hi def link lessVariableValue Constant
-hi def link lessDefault Special
-hi def link lessComment Comment
-hi def link lessFunction Function
-hi def link lessMixinChar Special
+syn match lessComment "//.*$" contains=@Spell,lessCommentTodo
+
 hi def link lessAmpersandChar Special
 hi def link lessClass PreProc
+hi def link lessComment Comment
+hi def link lessCommentTodo Todo
+hi def link lessDefault Special
+hi def link lessFunction Function
+hi def link lessMixinChar Special
+hi def link lessVariable Special
+hi def link lessVariableValue Constant
 
 let b:current_syntax = "less"
 
